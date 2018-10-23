@@ -51,7 +51,7 @@ We evaluated BioSentVec for clinical sentence pair similarity tasks. We used the
 ## References
 When using some of our pre-trained models for your application, please cite the following paper:
 
-1. Chen Q, Peng Y, Lu Z. [BioSentVec: creating sentence embeddings for biomedical texts](). 2018. arXiv:XXXX.XXXX.
+1. Chen Q, Peng Y, Lu Z. [BioSentVec: creating sentence embeddings for biomedical texts](http://arxiv.org/abs/1810.09302). 2018. *arXiv:1810.09302*.
 
 ## Acknowledgments
 This work was supported by the Intramural Research Programs of the National Institutes of Health, National Library of Medicine. We are grateful to the authors of fastText, sent2vec, MayoSRS, UMNSRS, BIOSSES, and MedSTS for making their software and data publicly available.
