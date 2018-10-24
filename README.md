@@ -23,7 +23,7 @@ We evaluated BioWordVec for medical word pair similarity. We used the MayoSRS (1
 | BioWordVec model | 0.552 | 0.660 |
 
 ## BioSentVec [1]: biomedical sentence embeddings with sent2vec
-We applied [sent2vec](https://physionet.org/works/MIMICIIIClinicalDatabase/access.shtml) to compute the 700-dimensional sentence embeddings. We used the bigram model and set window size to be 20 and negative examples 10.
+We applied [sent2vec](https://github.com/epfml/sent2vec) to compute the 700-dimensional sentence embeddings. We used the bigram model and set window size to be 20 and negative examples 10.
 
 * [BioSentVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioSentVec_PubMed_MIMICIII-bigram_d700.bin) 21GB (700dim, trained on PubMed+MIMIC-III)
 
