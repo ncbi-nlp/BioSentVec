@@ -12,8 +12,8 @@ We created biomedical word and sentence embeddings using [PubMed](https://www.nc
 ## BioWordVec: biomedical word embeddings with fastText
 We applied [fastText](https://fasttext.cc/) to compute 200-dimensional word embeddings. We set the window size to be 20, learning rate 0.05, sampling threshold 1e-4, and negative examples 10. Both the word vectors and the model with hyperparameters are available for download below. The model file can be used to compute word vectors that are not in the dictionary (i.e. out-of-vocabulary terms).
 
-* [BioWordVec vector](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin) 13GB (200dim, trained on PubMed+MIMIC-III, word2vec bin format)
-* [BioWordVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.vec.bin) 26GB (200dim, trained on PubMed+MIMIC-III)
+* [BioWordVec vector](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.vec.bin) 13GB (200dim, trained on PubMed+MIMIC-III, word2vec bin format)
+* [BioWordVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin) 26GB (200dim, trained on PubMed+MIMIC-III)
 
 We evaluated BioWordVec for medical word pair similarity. We used the MayoSRS (101 medical term pairs; download [here](http://rxinformatics.umn.edu/data/MayoSRS.csv)) and UMNSRS_similarity (566 UMLS concept pairs; download [here](http://rxinformatics.umn.edu/SemanticRelatednessResources.html)) datasets.
 
