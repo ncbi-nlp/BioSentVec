@@ -1,3 +1,6 @@
+"""
+Preprocess PubMed abstracts or MIMIC-III reports
+"""
 import re
 
 from nltk import sent_tokenize, word_tokenize
@@ -9,15 +12,14 @@ SECTION_TITLES = re.compile(
     r'|MEDICAL CONDITION|PROCEDURE|REASON FOR EXAM|REASON FOR STUDY|REASON FOR THIS EXAMINATION'
     r'|TECHNIQUE'
     r'):|FINAL REPORT',
-    re.IGNORECASE | re.MULTILINE)
+    re.I | re.M)
 
 
 def pattern_repl(matchobj):
     """
     Return a replacement string to be used for match object
     """
-    s = matchobj.group(0).lower()
-    return ' '.rjust(len(s))
+    return ' '.rjust(len(matchobj.group(0)))
 
 
 def sub(text):
@@ -41,9 +43,9 @@ def find_end(text):
         re.compile(r'M\[0KM\[0KM')
     ]
     for pattern in patterns:
-        m = pattern.search(text)
-        if m:
-            ends.append(m.start())
+        matchobj = pattern.search(text)
+        if matchobj:
+            ends.append(matchobj.start())
     return min(ends)
 
 
@@ -54,29 +56,33 @@ def split_heading(text):
         # add last
         end = matcher.start()
         if end != start:
-            t = text[start:end].strip()
-            if t:
-                yield t
+            section = text[start:end].strip()
+            if section:
+                yield section
 
         # add title
         start = end
         end = matcher.end()
         if end != start:
-            t = text[start:end].strip()
-            if t:
-                yield t
+            section = text[start:end].strip()
+            if section:
+                yield section
 
         start = end
 
     # add last piece
     end = len(text)
     if start < end:
-        t = text[start:end].strip()
-        if t:
-            yield t
+        section = text[start:end].strip()
+        if section:
+            yield section
 
 
-def trim(text):
+def clean_text(text):
+    """
+    Clean text
+    """
+
     # Replace [**Patterns**] with spaces.
     text = re.sub(r'\[\*\*.*?\*\*\]', pattern_repl, text)
     # Replace `_` with spaces.
@@ -103,7 +109,7 @@ def preprocess_mimic(text):
     3. Sentence and word tokenization
     4. lowercase
     """
-    for sec in split_heading(trim(text)):
+    for sec in split_heading(clean_text(text)):
         for sent in sent_tokenize(sec):
             text = ' '.join(word_tokenize(sent))
             yield text.lower()
@@ -135,11 +141,11 @@ def test_preprocess_mimic():
 def test_preprocess_pubmed():
     # from https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pubmed.cgi/BioC_xml/30096728/ascii
 
-    text = """A novel chiral porous-layer stationary phase was developed for use in open-tubular 
-    nano liquid chromatography. The stationary phase was prepared by an in-situ polymerization of 
-    3-chloro-2-hydroxypropylmethacrylate (HPMA-Cl) and ethylene dimethacrylate (EDMA). The reactive
-     chloro groups at the surface of the porous stationary phase were reacted with 
-     beta-Cyclodextrin (beta-CD). """
+    text = 'A novel chiral porous-layer stationary phase was developed for use in open-tubular ' \
+           'nano liquid chromatography. The stationary phase was prepared by an in-situ ' \
+           'polymerization of 3-chloro-2-hydroxypropylmethacrylate (HPMA-Cl) and ethylene ' \
+           'dimethacrylate (EDMA). The reactive chloro groups at the surface of the porous ' \
+           'stationary phase were reacted with beta-Cyclodextrin (beta-CD). '
     sents = [sen for sen in preprocess_pubmed(text)]
-    assert sents[2] == 'the reactive chloro groups at the surface of the porous stationary phase' \
-                       ' were reacted with beta-cyclodextrin ( beta-cd ) .'
+    assert sents[2] == 'the reactive chloro groups at the surface of the porous stationary phase ' \
+                       'were reacted with beta-cyclodextrin ( beta-cd ) .'

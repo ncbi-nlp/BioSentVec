@@ -1,6 +1,7 @@
 tmp*
 *.iml
 log/
+.pytest_cache
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
