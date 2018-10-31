@@ -22,16 +22,6 @@ def pattern_repl(matchobj):
     return ' '.rjust(len(matchobj.group(0)))
 
 
-def sub(text):
-    """
-    Replace [**Patterns**] with spaces.
-    Replace `_` with spaces.
-    """
-    text = re.sub(r'\[\*\*.*?\*\*\]', pattern_repl, text)
-    text = re.sub(r'_', ' ', text)
-    return text
-
-
 def find_end(text):
     """Find the end of the report."""
     ends = [len(text)]
