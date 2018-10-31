@@ -104,9 +104,9 @@ def clean_text(text):
 def preprocess_mimic(text):
     """
     Preprocess reports in MIMIC-III.
-    1. Remove [**Patterns**] and signature
-    2. Split the report into sections
-    3. Sentence and word tokenization
+    1. remove [**Patterns**] and signature
+    2. split the report into sections
+    3. tokenize sentences and words
     4. lowercase
     """
     for sec in split_heading(clean_text(text)):
@@ -118,7 +118,7 @@ def preprocess_mimic(text):
 def preprocess_pubmed(text):
     """
     Preprocess PubMed abstract. (https://www.ncbi.nlm.nih.gov/research/bionlp/APIs/BioC-PubMed/)
-    1. Sentence and word tokenization
+    1. tokenize sentences and words
     2. lowercase
     """
     for sent in sent_tokenize(text):
