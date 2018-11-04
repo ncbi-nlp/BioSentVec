@@ -1,5 +1,16 @@
 # BioWordVec & BioSentVec: <br><small>pre-trained embeddings for biomedical words and sentences</small>
 
+
+## Table of contents
+
+* [Text corpora](#text-corpora)
+* [BioWordVec: biomedical word embeddings with fastText](#biowordvec-biomedical-word-embeddings-with-fasttext)
+* [BioSentVec: biomedical sentence embeddings with sent2vec](#biosentvec)
+* [FAQ](#faq)
+* [References](#references)
+* [Acknowledgments](#acknowledgments)
+
+
 ## Text corpora
 We created biomedical word and sentence embeddings using [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/) and the clinical notes from [MIMIC-III Clinical Database](https://physionet.org/works/MIMICIIIClinicalDatabase/access.shtml). Both PubMed and MIMIC-III texts were split and tokenized using [NLTK](https://www.nltk.org/). We also lowercased all the words. The statistics of the two corpora are shown below.
 
@@ -10,6 +21,7 @@ We created biomedical word and sentence embeddings using [PubMed](https://www.nc
 
 
 ## BioWordVec: biomedical word embeddings with fastText
+
 We applied [fastText](https://fasttext.cc/) to compute 200-dimensional word embeddings. We set the window size to be 20, learning rate 0.05, sampling threshold 1e-4, and negative examples 10. Both the word vectors and the model with hyperparameters are available for download below. The model file can be used to compute word vectors that are not in the dictionary (i.e. out-of-vocabulary terms).
 
 * [BioWordVec vector](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.vec.bin) 13GB (200dim, trained on PubMed+MIMIC-III, word2vec bin format)
@@ -23,6 +35,7 @@ We evaluated BioWordVec for medical word pair similarity. We used the MayoSRS (1
 | BioWordVec model | 0.552 | 0.660 |
 
 ## BioSentVec [1]: biomedical sentence embeddings with sent2vec
+<a name="biosentvec"></a>
 We applied [sent2vec](https://github.com/epfml/sent2vec) to compute the 700-dimensional sentence embeddings. We used the bigram model and set window size to be 20 and negative examples 10.
 
 * [BioSentVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioSentVec_PubMed_MIMICIII-bigram_d700.bin) 21GB (700dim, trained on PubMed+MIMIC-III)
@@ -47,6 +60,10 @@ We evaluated BioSentVec for clinical sentence pair similarity tasks. We used the
 | &nbsp;&nbsp;&nbsp;&nbsp;Deep learning + BioSentVec (PubMed)                                      | 0.824 | 0.819 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Deep learning + BioSentVec (MIMIC-III)                                   | 0.353 | 0.805 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Deep learning + BioSentVec (PubMed + MIMIC-III)                          | **0.848** | **0.836** |
+
+## FAQ
+
+You can find [answers to frequently asked questions](https://github.com/ncbi-nlp/BioSentVec/wiki/FAQs) on our Wiki.
 
 ## References
 When using some of our pre-trained models for your application, please cite the following paper:
