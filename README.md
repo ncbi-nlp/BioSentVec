@@ -20,9 +20,9 @@ We created biomedical word and sentence embeddings using [PubMed](https://www.nc
 | MIMIC III Clinical notes | 2,083,180 | 41,674,775 | 539,006,967 |
 
 
-## BioWordVec: biomedical word embeddings with fastText
+## BioWordVec [1]: biomedical word embeddings with fastText
 
-We applied [fastText](https://fasttext.cc/) to compute 200-dimensional word embeddings. We set the window size to be 20, learning rate 0.05, sampling threshold 1e-4, and negative examples 10. Both the word vectors and the model with hyperparameters are available for download below. The model file can be used to compute word vectors that are not in the dictionary (i.e. out-of-vocabulary terms).
+We applied [fastText](https://fasttext.cc/) to compute 200-dimensional word embeddings. We set the window size to be 20, learning rate 0.05, sampling threshold 1e-4, and negative examples 10. Both the word vectors and the model with hyperparameters are available for download below. The model file can be used to compute word vectors that are not in the dictionary (i.e. out-of-vocabulary terms). This work extends the original [BioWordVec](https://github.com/ncbi-nlp/BioWordVec) which provides fastText word embeddings trained using PubMed and MeSH. We used the same parameters as the original BioWordVec which has been thoroughly evaluated in a range of applications.
 
 * [BioWordVec vector](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.vec.bin) 13GB (200dim, trained on PubMed+MIMIC-III, word2vec bin format)
 * [BioWordVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioWordVec_PubMed_MIMICIII_d200.bin) 26GB (200dim, trained on PubMed+MIMIC-III)
@@ -34,7 +34,7 @@ We evaluated BioWordVec for medical word pair similarity. We used the MayoSRS (1
 | word2vec | 0.513 | 0.626 |
 | BioWordVec model | 0.552 | 0.660 |
 
-## BioSentVec [1]: biomedical sentence embeddings with sent2vec
+## BioSentVec [2]: biomedical sentence embeddings with sent2vec
 <a name="biosentvec"></a>
 We applied [sent2vec](https://github.com/epfml/sent2vec) to compute the 700-dimensional sentence embeddings. We used the bigram model and set window size to be 20 and negative examples 10.
 
@@ -70,7 +70,8 @@ You can also find [this tutorial](https://github.com/ncbi-nlp/BioSentVec/blob/ma
 ## References
 When using some of our pre-trained models for your application, please cite the following paper:
 
-1. Chen Q, Peng Y, Lu Z. [BioSentVec: creating sentence embeddings for biomedical texts](http://arxiv.org/abs/1810.09302). 2018. *arXiv:1810.09302*.
+1. Zhang Y, Chen Q, Yang Z, Lin H, Lu Z. [BioWordVec, improving biomedical word embeddings with subword information and MeSH](https://www.nature.com/articles/s41597-019-0055-0). Scientific Data. 2019.
+2. Chen Q, Peng Y, Lu Z. [BioSentVec: creating sentence embeddings for biomedical texts](http://arxiv.org/abs/1810.09302). The 7th IEEE International Conference on Healthcare Informatics. 2019.
 
 ## Acknowledgments
 This work was supported by the Intramural Research Programs of the National Institutes of Health, National Library of Medicine. We are grateful to the authors of fastText, sent2vec, MayoSRS, UMNSRS, BIOSSES, and MedSTS for making their software and data publicly available.
