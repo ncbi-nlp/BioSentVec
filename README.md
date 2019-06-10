@@ -68,7 +68,7 @@ You can find [answers to frequently asked questions](https://github.com/ncbi-nlp
 You can also find [this tutorial](https://github.com/ncbi-nlp/BioSentVec/blob/master/BioSentVec_tutorial.ipynb) on how to use BioSentVec for a quick start.
 
 ## References
-When using some of our pre-trained models for your application, please cite the following paper:
+When using some of our pre-trained models for your application, please cite the following papers:
 
 1. Zhang Y, Chen Q, Yang Z, Lin H, Lu Z. [BioWordVec, improving biomedical word embeddings with subword information and MeSH](https://www.nature.com/articles/s41597-019-0055-0). Scientific Data. 2019.
 2. Chen Q, Peng Y, Lu Z. [BioSentVec: creating sentence embeddings for biomedical texts](http://arxiv.org/abs/1810.09302). The 7th IEEE International Conference on Healthcare Informatics. 2019.
