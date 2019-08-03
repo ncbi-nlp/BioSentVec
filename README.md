@@ -63,7 +63,7 @@ We evaluated BioSentVec for clinical sentence pair similarity tasks. We used the
 
 ## FAQ
 
-You can find [answers to frequently asked questions](https://github.com/ncbi-nlp/BioSentVec/wiki/) on our Wiki.
+You can find [answers to frequently asked questions](https://github.com/ncbi-nlp/BioSentVec/wiki/) on our Wiki; e.g., you can find the instructions on how to load these models.
 
 You can also find [this tutorial](https://github.com/ncbi-nlp/BioSentVec/blob/master/BioSentVec_tutorial.ipynb) on how to use BioSentVec for a quick start.
 
