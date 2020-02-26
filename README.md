@@ -5,7 +5,7 @@
 ## Table of contents
 
 * [Text corpora](#text-corpora)
-* [BioWordVec: biomedical word embeddings with fastText](#biowordvec-biomedical-word-embeddings-with-fasttext)
+* [BioWordVec: biomedical word embeddings with fastText](#biowordvec)
 * [BioSentVec: biomedical sentence embeddings with sent2vec](#biosentvec)
 * [FAQ](#faq)
 * [References](#references)
@@ -21,7 +21,7 @@ We created biomedical word and sentence embeddings using [PubMed](https://www.nc
 | MIMIC III Clinical notes | 2,083,180 | 41,674,775 | 539,006,967 |
 
 
-## BioWordVec [1]: biomedical word embeddings with fastText
+## <a name="biowordvec">BioWordVec [1]: biomedical word embeddings with fastText</a>
 
 We applied [fastText](https://fasttext.cc/) to compute 200-dimensional word embeddings. We set the window size to be 20, learning rate 0.05, sampling threshold 1e-4, and negative examples 10. Both the word vectors and the model with hyperparameters are available for download below. The model file can be used to compute word vectors that are not in the dictionary (i.e. out-of-vocabulary terms). This work extends the original [BioWordVec](https://github.com/ncbi-nlp/BioWordVec) which provides fastText word embeddings trained using PubMed and MeSH. We used the same parameters as the original BioWordVec which has been thoroughly evaluated in a range of applications.
 
@@ -35,8 +35,8 @@ We evaluated BioWordVec for medical word pair similarity. We used the MayoSRS (1
 | word2vec | 0.513 | 0.626 |
 | BioWordVec model | 0.552 | 0.660 |
 
-## BioSentVec [2]: biomedical sentence embeddings with sent2vec
-<a name="biosentvec"></a>
+## <a name="biosentvec"> BioSentVec [2]: biomedical sentence embeddings with sent2vec</a>
+
 We applied [sent2vec](https://github.com/epfml/sent2vec) to compute the 700-dimensional sentence embeddings. We used the bigram model and set window size to be 20 and negative examples 10.
 
 * [BioSentVec model](https://ftp.ncbi.nlm.nih.gov/pub/lu/Suppl/BioSentVec/BioSentVec_PubMed_MIMICIII-bigram_d700.bin) 21GB (700dim, trained on PubMed+MIMIC-III)
