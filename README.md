@@ -1,7 +1,5 @@
 # BioWordVec & BioSentVec: <br><small>pre-trained embeddings for biomedical words and sentences</small>
 
-[![HitCount](https://hits.dwyl.com/ncbi-nlp/BioSentVec.svg)](https://hits.dwyl.com/ncbi-nlp/BioSentVec)
-
 ## Table of contents
 
 * [Text corpora](#text-corpora)
